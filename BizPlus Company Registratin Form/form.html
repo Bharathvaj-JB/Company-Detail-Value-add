@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Form</title>
+    <link rel="stylesheet" href="design.css">
+</head>
+
+<body>
+    <div class="header">
+        <h1 style="text-align: center;">Basic Form</h1>
+    </div>
+    <form id="myform" name="myform" style="background-color: blue;" method="post">
+        <div class="form-control">
+            <label style="font-family: bold;">FirstName </label>
+            <input type="text" name="fname" id="fname" placeholder="Enter Your Firstname" required><br><br>
+            <label>LastName </label>
+            <input type="text" name="lname" id="lname" placeholder="Enter Your LastName" required><br><br>
+            <label>BirthDate </label>
+            <input type="date" name="dob" id="dob" required><br><br>
+            <div id="dobMessage" style="color:white;"></div><br>
+            
+            TamilNadu :
+                <input type="radio">Yes
+                <label class="radio-container"></label>
+                <span class="checkmark"></span>
+            </label>
+            
+                <input type="radio">No 
+                <label class="radio-container">
+                <span class="checkmark"></span>
+            </label>
+            <br><br>
+            Are you TamilNadu:
+                <button type="button" name="button">Yes</button>
+                <button type="button" name="button">No</button>
+            </div><br><br>
+            <label class="checkbox-container" name="checkbox" id="checkbox">City</label><br>
+            <input type="checkbox">Chennai<br>
+            <input type="checkbox">Madurai<br>
+            <input type="checkbox">Villuppuram<br><br>
+
+            <label for="language">Language</label>
+            <select id="language" name="option" id="option" style="background-color: red;">
+                <option >tamil</option>
+                <option >English</option>
+                <option >Hindi</option>
+                <option >malayalam</option>
+            </select><br><br>
+            
+    <input type="submit" value="submit" name="submit" >
+            
+            
+        </div>
+    </form>
+    
+
+
+
+    <script src="js/code.jquery.com_jquery-3.7.1.min.js"></script>
+        <script>
+        $(document).ready(function(){
+        alert("fill the Content");
+        });
+        $(document).ready(function(){
+  $("input").focus(function(){
+    $(this).css("background-color", "orange");
+  });
+  $("input").blur(function(){
+    $(this).css("background-color", "pink");
+  });
+});
+$(document).ready(function(){
+  $("button").click(function(){
+    $(this).css("background-color", "red");
+  });
+  
+});
+
+
+$(document).ready(function(){
+  $("").click(function(){
+
+  });
+});
+
+$(document).ready(function () {
+    $("#myform").submit(function (event) {
+        event.preventDefault();
+        var fname = $("#fname").val();
+        alert("Name: "+fname+"");
+
+
+    });
+    });
+
+
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <style>
+        body {
+            text-align: center;
+            background: #0d7434;
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            color: black;
+            font-size: 200%;
+        }
+
+        form {
+           
+            font-size: 25px;
+            max-width: 1200px;
+            width: 100%;
+            background: rgb(0, 179, 255);
+            margin: 20px auto;
+            padding: 30px;
+            box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+            text-align: center;
+        }
+
+        .input-field {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            margin-left: 350px;
+        }
+
+        .input-field label {
+            width: 200px;
+            color: black;
+            margin-left: 10px;
+            font-size: 1.5rem;
+            font-family: 'Times New Roman', Times, serif;
+           
+        }
+
+        .required::after {
+            content: "*";
+            color: red;
+            font-size: 20px;
+        }
+
+        input[type="text"],
+        input[type="date"],
+        select,
+        input[type="password"],
+        textarea {
+            width: 30%;
+            height: 50px;
+            padding: 12px 20px;
+            margin: 25px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        input[type="submit"],
+        input[type="reset"] {
+            width: 10%;
+            padding: 12px 20px;
+            margin: 8px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: goldenrod;
+        }
+        textarea{
+          height: 150px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Registration Form</h1>
+    <form id="myform" name="form" action="/submit" method="post" onsubmit="return validateForm()">
+        <div class="input-field">
+            <label for="Community"  class="required">Community/Institution</label>
+            <select id="Community" name="community" required>
+                <option value="">Choose the value...</option>
+                <option>AGR CLUB</option>
+                <option>JRS CLUB</option>
+                <option>JRB CLUB</option>
+                <option>BK CLUB</option>
+            </select>
+        </div>
+        <div class="input-field">
+            <label for="member" class="required">Member Type</label>
+            <select id="member"  name="member" required>
+                <option value="">Choose the value...</option>
+                <option>Club Member</option>
+                <option>Group Member</option>
+                <option>Individual Member</option>
+                <option>Others</option>
+            </select>
+        </div>
+        <div class="input-field">
+            <label for="regno" class="required">Registration Number</label>
+            <input type="text" name="regno" id="regno" placeholder="Enter Your Registration No" required>
+            <div id="regmessage" style="color: red;"></div>
+        </div>
+        <div class="input-field">
+            <label for="fname" class="required">Name</label>
+            <input type="text" name="fname" id="fname" required>
+            <div id="nameMessage" style="color: red;"></div>
+        </div>
+        <div class="input-field">
+            <label for="email" class="required">Email</label>
+            <input type="text" name="email" id="email" placeholder="Enter Your Email" required>
+            <div id="emailMessage" style="color: red;"></div>
+        </div>
+        <div class="input-field">
+            <label for="pass" class="required">Password</label>
+            <input type="password" name="pass" id="pass" placeholder="Enter Your Password" required>
+            <div id="passMessage" style="color: red;"></div>
+        </div>
+        <div class="input-field">
+            <label class="required">Mobile Number</label>
+            <input type="text" name="mobileNumber" id="mobileNumber" placeholder="Enter Your Mobile Number" required>
+            <div id="phoneMessage" style="color: red;"></div>
+        </div>
+        <div class="input-field">
+            <label for="dob" class="required">Date Of Birth</label>
+            <input type="date" name="dob" id="dob" required>
+            <div id="dobMessage" style="color: red;"></div>
+        </div>
+        <div class="input-field">
+            <label for="gender" class="required">Gender</label>
+            <select id="gender" name="gender" required>
+                <option value="">Choose the value...</option>
+                <option>Male</option>
+                <option>Female</option>
+                <option>Transgender</option>
+            </select>
+        </div>
+        <div class="input-field">
+            <label for="presentAddress" class="required">Present Address</label>
+            <textarea name="presentAddress" id="presentAddress" placeholder="Enter Your Present Address"
+                required></textarea>
+                <input type="checkbox" name="check" id="check">
+        </div>
+        <div class="input-field">
+            <label for="permanentAddress" class="required">Permanent Address</label>
+            <textarea name="permanentAddress" id="permanentAddress" placeholder="Enter Your Permanent Address"
+                required></textarea>
+                
+        </div>
+        <div class="input-field">
+            <label for="businessName" class="required">Name Of Business</label>
+            <input type="text" name="businessName" id="businessName" required>
+            <div id="BMessage" style="color: red;"></div>
+        </div>
+        <div class="input-field">
+            <label for="designation" class="required">Designation</label>
+            <input type="text" name="designation" id="designation" required>
+            <div id="DMessage" style="color: red;"></div>
+        </div>
+        <div class="input-field">
+            <label for="specialization" class="required">Specialization</label>
+            <input type="text" name="specialization" id="specialization" required>
+            <div id="SMessage" style="color: red;"></div>
+        </div>
+        <div class="input-field">
+            <label for="skills" class="required">Skills</label>
+            <input type="text" name="skills" id="skills" required>
+            <div id="SkMessage" style="color: red;"></div>
+        </div>
+        <input type="submit" value="Submit" name="submit">
+        <input type="reset" value="Reset" name="reset">
+    </form>
+
+    <script>
+        document.getElementById("myform").addEventListener("submit", function (event) {
+            if (!confirm("Are you sure you submit this form?")) {
+                event.preventDefault();
+            }
+        });
+        function validateEmail(email) {
+            const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return regex.test(email);
+        }
+
+        document.getElementById("myform").addEventListener("submit", function (event) {
+            const emailInput = document.getElementById("email");
+            if (!validateEmail(emailInput.value)) {
+                emailMessage.innerHTML = "Please Enter valid Email.";
+                return true;
+                emailInput.focus(regno);
+                event.preventDefault();
+            }
+        });
+
+        document.getElementById("myform").addEventListener("submit", function (event) {
+            const dobInput = document.getElementById("dob");
+            const dobMessage = document.getElementById("dobMessage");
+            const selectedDate = new Date(dobInput.value);
+            const today = new Date();
+            if (selectedDate <= today) {
+                dobMessage.innerHTML = "";
+                return true;
+            } else {
+                dobMessage.innerHTML = "Date of birth is not valid.";
+                return false;
+            }
+        });
+
+
+        document.getElementById("myform").addEventListener("submit", function (event) {
+
+            let regname = /^[A-Za-z]+$/;
+            let inputname = document.getElementById("fname").value;
+            event.preventDefault();
+
+            if (!regname.test(inputname)) {
+                nameMessage.innerHTML = "name is invalid.";
+
+                return false;
+            }
+            else {
+                nameMessage.innerHTML = "";
+                return true;
+            }
+
+        });
+
+document.getElementById("myform").addEventListener("submit",function(event){
+    
+    let minlength=9;
+    let inputname=document.getElementById("pass").value;
+    let passMessage = document.getElementById("passMessage");
+    event.preventDefault();
+    if( inputname.length >= minlength ){
+        
+        passMessage.innerHTML ="Invalid`.Max 8 character only"
+        return false;
+    }
+    else
+    {
+        passMessage.innerHTML=""
+        return true;
+    }
+});
+document.getElementById("check").addEventListener("change", function () {
+    const presentAddressField = document.getElementById("presentAddress");
+    const permanentAddressField = document.getElementById("permanentAddress");
+
+    if (this.checked) {
+        
+        permanentAddressField.value = presentAddressField.value;
+        permanentAddressField.disabled = true;
+    } else {
+        
+        permanentAddressField.value = "";
+        permanentAddressField.disabled = false;
+    }
+});
+
+document.getElementById("myform").addEventListener("submit", function (event) {
+
+let regname = /^[A-Za-z]+$/;
+let inputname = document.getElementById("businessName").value;
+event.preventDefault();
+
+if (!regname.test(inputname)) {
+    BMessage.innerHTML = "Name Of Business is invalid.";
+
+    return false;
+}
+else {
+    Message.innerHTML = "";
+    return true;
+}
+
+});
+
+document.getElementById("myform").addEventListener("submit", function (event) {
+
+let regname = /^[A-Za-z]+$/;
+let inputname = document.getElementById("designation").value;
+event.preventDefault();
+
+if (!regname.test(inputname)) {
+    DMessage.innerHTML = "designation is invalid.";
+
+    return false;
+}
+else {
+    DMessage.innerHTML = "";
+    return true;
+}
+
+});
+
+document.getElementById("myform").addEventListener("submit", function (event) {
+
+let regname = /^[A-Za-z]+$/;
+let inputname = document.getElementById("specialization").value;
+event.preventDefault();
+
+if (!regname.test(inputname)) {
+    SMessage.innerHTML = "specialization is invalid.";
+
+    return false;
+}
+else {
+    SMessage.innerHTML = "";
+    return true;
+}
+
+});
+document.getElementById("myform").addEventListener("submit", function (event) {
+
+let regname = /^[A-Za-z]+$/;
+let inputname = document.getElementById("skills").value;
+event.preventDefault();
+
+if (!regname.test(inputname)) {
+    SkMessage.innerHTML = "Skills is invalid.";
+
+    return false;
+}
+else {
+    SkMessage.innerHTML = "";
+    return true;
+}
+
+});
+
+    </script>
+    <script src="js/code.jquery.com_jquery-3.7.1.min.js"></script>
+    <script>
+
+        $(document).ready(function () {
+            $("input").focus(function () {
+                $(this).css("background-color", "yellow");
+            });
+            $("input").blur(function () {
+                $(this).css("background-color", "Blue");
+            });
+        });
+        $("select").focus(function () {
+            $(this).css("background-color", "yellow");
+        });
+        $("select").blur(function () {
+            $(this).css("background-color", "Blue");
+        });
+        $("textarea").focus(function () {
+            $(this).css("background-color", "yellow");
+        });
+        $("textarea").blur(function () {
+            $(this).css("background-color", "Blue");
+        });
+
+
+
+
+
+
+        $(document).ready(function () {
+            $("#myform").submit(function (event) {
+                event.preventDefault();
+                var fname = $("#fname").val();
+                alert("Thank You" + fname + "Your Form Will be submitted ");
+            });
+        });
+
+
+        $(document).ready(function () {
+
+            function validateRegistrationNumber(registrationNumber) {
+                const minLength = 6;
+                const maxLength = 10;
+
+                if (registrationNumber.length < minLength || registrationNumber.length > maxLength) {
+                    return false;
+                }
+
+                if (!/^\d+$/.test(registrationNumber)) {
+                    return false;
+                }
+
+                return true;
+            }
+
+
+            $("#myform").submit(function (event) {
+                const registrationNumberInput = $("#regno").val();
+                if (!validateRegistrationNumber(registrationNumberInput)) {
+
+                    regmessage.innerHTML = "Invalid RegisterNumber.Retry";
+                    event.preventDefault();
+                }
+            });
+        });
+
+        $(document).ready(function () {
+            var phonePattern = /^[0-9]{10}$/;
+
+            $('#myform').submit(function (event) {
+                event.preventDefault();
+                var phoneNumber = $('#mobileNumber').val();
+
+                if (phonePattern.test(phoneNumber)) {
+                    $('#phoneMessage').text('');
+                } else {
+                    $('#phoneMessage').text('Invalid phone number');
+                }
+            });
+        });
+    </script>
+
+</body>
+
+</html>
